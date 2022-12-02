@@ -93,6 +93,7 @@ return packer.startup(function(use)
 			ts_update()
 		end,
 	})
+	use("p00f/nvim-ts-rainbow") -- for bracket pair highlighting
 
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
@@ -118,6 +119,9 @@ return packer.startup(function(use)
 
 	-- which key (shows suggestions for possible key bindings)
 	use("folke/which-key.nvim")
+
+	-- color highlighter for hex code and such
+	use("NvChad/nvim-colorizer.lua")
 
 	if packer_bootstrap then
 		require("packer").sync()

@@ -39,4 +39,17 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+
+	rainbow = { -- bracket pair highlighter (nvim-ts-rainbow plugin)
+		enable = true,
+		colors = {
+			"#CCCAC2",
+			"#FFAD66",
+			"#DFBFFF",
+			"#FFDFB3",
+			"#FF6666",
+			"#4CBF99",
+			"#F29E74",
+		},
+	},
 })
