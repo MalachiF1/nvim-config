@@ -1,0 +1,24 @@
+{
+    "tabWidth": 4,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "semicolons": true,
+    "bracketSpacing": true,
+    "bracketLine": false,
+    "arrowParens": "avoid",
+    "printWidth": 80,
+    "proseWrap": "always",
+    "overrides": [
+        {
+            "files": "*.yml",
+            "options": {
+                "printWidth": 120,
+                "proseWrap": "preserve"
+            }
+        },
+        {
+            "files": ".prettierrc",
+            "options": { "parser": "json" }
+        }
+    ]
+}
