@@ -123,6 +123,9 @@ return packer.startup(function(use)
 	-- color highlighter for hex code and such
 	use("NvChad/nvim-colorizer.lua")
 
+	-- nvim welcom page (when opening nvim without specific file)
+	use("goolord/alpha-nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
