@@ -48,4 +48,75 @@ opt.mouse = "a"
 -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 opt.clipboard = "unnamedplus"
 
--- stop "~" from appearing on blank lines
+-- highlight text when yanking
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
+	end,
+})
+
+-- git rid off ~ character on blank buffers
+opt.fillchars = { eob = " " }
+
+-- make vim commands work when in hebrew
+opt.keymap = "hebrew"
+opt.iminsert = 0
+opt.imsearch = -1
+
+-- opt.langmap = {
+-- 	"AA",
+-- 	"BB",
+-- 	"CC",
+-- 	"DD",
+-- 	"EE",
+-- 	"FF",
+-- 	"GG",
+-- 	"HH",
+-- 	"II",
+-- 	"JJ",
+-- 	"KK",
+-- 	"LL",
+-- 	"MM",
+-- 	"NN",
+-- 	"OO",
+-- 	"PP",
+-- 	"QQ",
+-- 	"RR",
+-- 	"SS",
+-- 	"TT",
+-- 	"UU",
+-- 	"VV",
+-- 	"WW",
+-- 	"XX",
+-- 	"YY",
+-- 	"ZZ",
+-- 	"שa",
+-- 	"נb",
+-- 	"בc",
+-- 	"גd",
+-- 	"קe",
+-- 	"כf",
+-- 	"עg",
+-- 	"יh",
+-- 	"ןi",
+-- 	"חj",
+-- 	"לk",
+-- 	"ךl",
+-- 	"צm",
+-- 	"מn",
+-- 	"םo",
+-- 	"פp",
+-- 	"/q",
+-- 	"רr",
+-- 	"דs",
+-- 	"אt",
+-- 	"וu",
+-- 	"הv",
+-- 	"'w",
+-- 	"סx",
+-- 	"טy",
+-- 	"זz",
+-- }

@@ -4,6 +4,7 @@ local term_opts = { silent = true }
 
 -- set leader key to space
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local keymap = vim.keymap.set -- for conciseness
 
@@ -11,8 +12,14 @@ local keymap = vim.keymap.set -- for conciseness
 -- General Keymaps
 ---------------------
 
--- use jk to exit insert mode
-keymap("i", "jk", "<ESC>", opts)
+-- swich to hebrew in insert mode (and back to english)
+keymap("i", "<A-h>", "<C-^>", opts)
+
+-- use jk to exit insert mode (and hebrew equevalent)
+-- iminsert has to do with swiching back from hebrew to english when exiting insert mode
+keymap("i", "jk", "<ESC>:set iminsert=0<CR>", opts)
+keymap("i", "חל", "<ESC>:set iminsert=0<CR>", opts)
+keymap("i", "<ESC>", "<ESC>:set iminsert=0<CR>", opts)
 
 -- clear search highlights
 keymap("n", "<leader>nh", ":nohl<CR>", opts)
@@ -20,9 +27,22 @@ keymap("n", "<leader>nh", ":nohl<CR>", opts)
 -- delete single character without copying into register
 keymap("n", "x", '"_x', opts)
 
+-- keep mouse in middle of screen when using ctrl+U/ctrl+D/searching
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
+
+-- take cursor to start/end of line when perssing gg/G
+keymap("n", "G", "G$", opts)
+keymap("n", "gg", "gg0", opts)
+
 -- increment/decrement numbers
 keymap("n", "<leader>+", "<C-a>", opts) -- increment
 keymap("n", "<leader>-", "<C-x>", opts) -- decrement
+
+-- Search and replace
+keymap("n", "S", ":%s//g<left><left>", opts)
 
 -- window management
 keymap("n", "<leader>sv", "<C-w>v", opts) -- split window vertically

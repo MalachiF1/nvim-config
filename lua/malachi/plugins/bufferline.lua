@@ -14,7 +14,10 @@ bufferline.setup({
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
 		indicator_icon = nil,
-		indicator = { style = "icon", icon = "▎" },
+		indicator = {
+			style = "none", -- icon, none
+			-- icon = "▎"
+		},
 		buffer_close_icon = "",
 		-- buffer_close_icon = '',
 		modified_icon = "●",
@@ -33,7 +36,7 @@ bufferline.setup({
 		--   end
 		-- end,
 		max_name_length = 30,
-		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+		max_prefix_length = 20, -- prefix used when a buffer is de-duplicated
 		tab_size = 20,
 		diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
 		diagnostics_update_in_insert = false,
@@ -59,11 +62,15 @@ bufferline.setup({
 		offsets = {
 			{
 				filetype = "NvimTree",
-				text = "File Explorer",
+				--	text = "File Explorer",
 				text_align = "center",
-				seporator = true,
+				separator = false,
 				highlight = "Directory",
 				-- padding = 1,
+			},
+			{
+				filetype = "lspsagaoutline",
+				separator = false,
 			},
 		},
 		show_buffer_icons = true,
@@ -73,7 +80,7 @@ bufferline.setup({
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		-- can also be a table containing 2 custom separators
 		-- [focused and unfocused]. eg: { '|', '|' }
-		separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 		-- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -91,11 +98,13 @@ bufferline.setup({
 			bg = { attribute = "bg", highlight = "TabLine" },
 		},
 
-		-- buffer_selected = {
-		--   fg = {attribute='fg',highlight='#ff0000'},
-		--   bg = {attribute='bg',highlight='#0000ff'},
-		--   gui = 'none'
-		--   },
+		buffer_selected = {
+			-- fg = {attribute='fg',highlight='#ff0000'},
+			-- bg = {attribute='bg',highlight='#0000ff'},
+			-- gui = "none",
+			bold = true,
+			italic = false,
+		},
 		buffer_visible = {
 			fg = { attribute = "fg", highlight = "TabLine" },
 			bg = { attribute = "bg", highlight = "TabLine" },
@@ -165,10 +174,10 @@ bufferline.setup({
 			fg = { attribute = "bg", highlight = "Normal" },
 			bg = { attribute = "bg", highlight = "Normal" },
 		},
-		-- separator_visible = {
-		--   fg = {attribute='bg',highlight='TabLine'},
-		--   bg = {attribute='bg',highlight='TabLine'}
-		--   },
+		separator_visible = {
+			fg = { attribute = "bg", highlight = "TabLine" },
+			bg = { attribute = "bg", highlight = "TabLine" },
+		},
 		indicator_selected = {
 			fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultHint" },
 			bg = { attribute = "bg", highlight = "Normal" },

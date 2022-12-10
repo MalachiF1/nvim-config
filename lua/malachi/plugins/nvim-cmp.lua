@@ -44,9 +44,9 @@ cmp.setup({
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.expandable() then
+			--	if cmp.visible() then
+			--		cmp.select_next_item()
+			if luasnip.expandable() then
 				luasnip.expand()
 			elseif luasnip.expand_or_jumpable() then
 				luasnip.expand_or_jump()
@@ -97,5 +97,27 @@ cmp.setup({
 	experimental = {
 		ghost_text = false,
 		native_menu = false,
+	},
+})
+
+-- `:` cmdline setup
+cmp.setup.cmdline(":", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path" },
+	}, {
+		{
+			name = "cmdline",
+			option = {
+				ingnore_cmds = { "Man", "!" },
+			},
+		},
+	}),
+})
+-- `/` cmdline setup.
+cmp.setup.cmdline("/", {
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "buffer" },
 	},
 })

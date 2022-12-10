@@ -85,6 +85,7 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["o"] = { "<cmd>SymbolsOutline<cr>", "Outline" },
 	["w"] = { "<cmd>w!<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -94,7 +95,6 @@ local mappings = {
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	p = {
 		name = "Packer",

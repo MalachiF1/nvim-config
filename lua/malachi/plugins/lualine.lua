@@ -21,4 +21,10 @@ lualine.setup({
 	options = {
 		theme = ayu_dark,
 	},
+	extensions = {
+		"fzf",
+		"nvim-tree",
+		"toggleterm",
+		"symbols-outline",
+	},
 })

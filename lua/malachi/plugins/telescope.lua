@@ -12,8 +12,9 @@ end
 
 -- configure telescope
 telescope.setup({
-	-- configure custom mappings
 	defaults = {
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		-- configure custom mappings
 		mappings = {
 			i = {
 				["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -21,7 +22,15 @@ telescope.setup({
 				["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
 			},
 		},
+		sorting_strategy = "ascending",
+		layout_strategy = "flex", -- "horizontal",
+		preview = {
+			treesitter = true,
+		},
+		theme = "ayu-dark",
 	},
+	pickers = {},
+	extensions = {},
 })
 
 telescope.load_extension("fzf")

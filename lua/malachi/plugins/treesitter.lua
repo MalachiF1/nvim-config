@@ -9,6 +9,7 @@ treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {
 		enable = true,
+		disable = { "latex" },
 	},
 	-- enable indentation
 	indent = { enable = true },
@@ -42,14 +43,14 @@ treesitter.setup({
 
 	rainbow = { -- bracket pair highlighter (nvim-ts-rainbow plugin)
 		enable = true,
+		extended_mode = true,
 		colors = {
 			"#CCCAC2",
-			"#FFAD66",
+			"#F29E74",
 			"#DFBFFF",
 			"#FFDFB3",
 			"#FF6666",
 			"#4CBF99",
-			"#F29E74",
 		},
 	},
 })
